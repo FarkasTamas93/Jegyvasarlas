@@ -18,6 +18,7 @@ export class AppComponent {
       (events: any[]) => this.eventsService.getEvents().push(...events),
       (error) => console.log(error)
     )
+    
   }
   
   onLoad() {

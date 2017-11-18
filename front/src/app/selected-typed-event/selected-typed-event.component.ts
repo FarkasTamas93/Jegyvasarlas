@@ -17,10 +17,11 @@ export class SelectedTypedEventComponent implements OnInit {
 
   ngOnInit() {
     this.selectedEvents=this.eventsService.getActualList();
+
     this.route.params.subscribe(params => {
       this.type = params['type']; // (+) converts string 'id' to a number
       console.log(this.type);
-      this.eventsService.getEventsFromType(this.type);
+      this.eventsService.setEventsFromType(this.type);
       this.selectedEvents=this.eventsService.getActualList();
       console.log(this.selectedEvents);
    });

@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-xs-12">
       <app-event-item
         *ngFor="let event of events"
@@ -9,5 +9,21 @@
         [routerLink]="['/eventinformation',event.eventIndex]"
       >
       </app-event-item>
+    </div>
+</div>  -->
+
+<div class="row">
+    <div class="col-xs-12">
+      <div *ngFor="let event of events;let i=index">
+          <app-event-item
+          [eventItem]="event"
+          [index]="event.eventIndex"
+          (click)="onSelectedItem(event.eventIndex)"
+          (click)="onThreeSelectedItem(event.eventIndex)"
+          [routerLink]="['/eventinformation',event.eventIndex]"
+          *ngIf="i<numOfEvents"
+        >
+        </app-event-item>
+      </div>
     </div>
 </div> 

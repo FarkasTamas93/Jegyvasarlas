@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   }
 
   typedList(type:string){
-    this.eventsService.getEventsFromType(type);
+    this.eventsService.setEventsFromType(type);
     console.log(this.eventsService.getActualList());
   }
 

@@ -10,11 +10,14 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   //events: EventModel[];
-
+  num=12;
   constructor(private eventsService: EventsService) { }
 
   ngOnInit() {
 //    this.events = this.eventsService.getEvents();
   }
 
+  setNum() {
+    this.num=this.num+2;
+  }
 }
