@@ -1,0 +1,50 @@
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <a href="#"><img src="http://nevezes.dogshow.hu/img/jegyek.png" alt="jegy.png" width="70"> </a>
+        </ul>
+        <ul class="nav navbar-nav navbar-center">
+            <li routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/']">Home</a></li>
+            <li routerLinkActive="router-link-active"><a [routerLink]="['/typedEvent/','Színház']" (click)="typedList('Színház')">Szinház</a></li>
+            <li routerLinkActive="router-link-active"><a [routerLink]="['/typedEvent/','Koncert']" (click)="typedList('Koncert')">Koncert</a></li>
+            <li routerLinkActive="router-link-active"><a [routerLink]="['/typedEvent/','Mozi']" (click)="typedList('Mozi')">Mozi</a></li>
+            <li><a href="#">Kedvezményes jegyek</a></li>
+            <li><a href="#">Szakdoga</a></li>
+            <li routerLinkActive="router-link-active"><a [routerLink]="['/eventinformation']">Információ</a></li>
+            <li routerLinkActive="router-link-active"><a [routerLink]="['/addnewevent']">Új esemény</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li *ngIf="!logged" routerLinkActive="router-link-active"><a [routerLink]="['/addnewuser']"><span class="glyphicon glyphicon-user"></span> Regisztráció</a></li>
+            <li *ngIf="!logged" (click)="onLoginClick()"><a><span class="glyphicon glyphicon-log-in"></span> Bejelentkezés</a></li>
+            <li *ngIf="logged"><a><span class="glyphicon glyphicon-user"></span> Profil</a></li>
+            <li *ngIf="logged"><a><span class="glyphicon glyphicon-log-in"></span> Kijelentkezés</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div *ngIf="loginLink">
+    <div class="container-fluid">
+        <div class="col-sm-10">
+        </div>
+        <div class="col-sm-2">
+            <form>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="email" type="text" class="form-control" name="email" placeholder="Felhasználónév">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="password" type="password" class="form-control" name="password" placeholder="Jelszó">
+                </div>
+            </form>
+            <div class = "pull-right"><button (click)="onLoggedButtonClicked()">Belépés</button></div>
+        </div>
+    </div>
+</div>

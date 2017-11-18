@@ -1,0 +1,29 @@
+<app-search></app-search>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="dropdown">
+                <button class="btn btn btn" type="button" data-toggle="dropdown">Top12 <span class="caret"></span></button>
+                <button type="button" class="btn btn">Legújabb</button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Színház</a></li>
+                    <li><a href="#">Koncert</a></li>
+                    <li><a href="#">Kiállítás</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>    
+</div>
+<br>
+
+<div *ngFor="let event of selectedEvents">
+  <div class="col-sm-2">
+    <div class="list-group" >
+      <a class="list-group-item">
+        <img src="{{event.imagePath}}" alt="valami" class="list-group-item-heading" width="250" height="150">
+        <p class="list-group-item-text"><strong>{{event.title}}</strong></p>
+        <p class="list-group-item-text" style="width: 250px;height: 80px; overflow: hidden;">{{event.description}}</p>
+      </a>
+    </div>
+  </div>
+</div>
