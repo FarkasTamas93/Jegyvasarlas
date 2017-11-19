@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   //events: EventModel[];
-  num=12;
+  num=12;    //alapból mennyi kép jelenjen meg
   constructor(private eventsService: EventsService) { }
 
   ngOnInit() {
@@ -18,6 +18,6 @@ export class HomeComponent implements OnInit {
   }
 
   setNum() {
-    this.num=this.num+2;
+    this.num=this.num+2;        //+ba megjelenített képek száma
   }
 }
