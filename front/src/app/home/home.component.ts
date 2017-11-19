@@ -20,4 +20,5 @@ export class HomeComponent implements OnInit {
   setNum() {
     this.num=this.num+2;        //+ba megjelenített képek száma
   }
+  
 }

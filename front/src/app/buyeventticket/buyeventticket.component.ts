@@ -1,3 +1,5 @@
+import { EventticketService } from './../eventticket.service';
+import { EventTicketModel } from './eventticket.model';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -24,65 +26,39 @@ export class BuyeventticketComponent implements OnInit{
 
 public context: CanvasRenderingContext2D;
 
-  eventTicketTest =[
-    {chair:1,row:1,sector:"valami"},
-    {chair:2,row:1,sector:"valami"},
-    {chair:3,row:1,sector:"valami"},
-    {chair:4,row:1,sector:"valami"},
-    {chair:5,row:1,sector:"valami"},
-    {chair:6,row:1,sector:"valami"},
-    {chair:7,row:1,sector:"valami"},
-    {chair:8,row:1,sector:"valami"},
-    {chair:9,row:1,sector:"valami"},
-    {chair:10,row:1,sector:"valami"},
-    {chair:11,row:1,sector:"valami"},
-    {chair:12,row:1,sector:"valami"},
-    {chair:13,row:1,sector:"valami"},
-    {chair:14,row:1,sector:"valami"},
-    {chair:15,row:1,sector:"valami"},
-    {chair:16,row:1,sector:"valami"}
-  ]
-  eventTicketTest2 =[
-    {chair:1,row:1,sector:"valami"},
-    {chair:2,row:1,sector:"valami"},
-    {chair:3,row:1,sector:"valami"},
-    {chair:4,row:1,sector:"valami"},
-    {chair:5,row:1,sector:"valami"},
-    {chair:6,row:1,sector:"valami"},
-    {chair:7,row:1,sector:"valami"},
-    {chair:8,row:1,sector:"valami"},
-    {chair:9,row:1,sector:"valami"},
-    {chair:10,row:1,sector:"valami"},
-    {chair:11,row:1,sector:"valami"},
-    {chair:12,row:1,sector:"valami"},
-    {chair:13,row:1,sector:"valami"},
-    {chair:14,row:1,sector:"valami"},
-    {chair:15,row:1,sector:"valami"},
-    {chair:16,row:1,sector:"valami"},
-    {chair:17,row:1,sector:"valami"}
-  ]
+  eventTicket1:EventTicketModel[] =[];
+  eventTicket2:EventTicketModel[] =[];
+  eventTicket3:EventTicketModel[] =[];
+  eventTicket4:EventTicketModel[] =[];
+  eventTicket5:EventTicketModel[] =[];
+  eventTicket6:EventTicketModel[] =[];
+  eventTicket7:EventTicketModel[] =[];
+  eventTicket8:EventTicketModel[] =[];
+  eventTicket9:EventTicketModel[] =[];
+  eventTicket10:EventTicketModel[] =[];
+  eventTicket11:EventTicketModel[] =[];
+  eventTicket12:EventTicketModel[] =[];
+  eventTicket13:EventTicketModel[] =[];
+  eventTicket14:EventTicketModel[] =[];
 
-  eventTicketTest3 =[
-    {chair:1,row:1,sector:"valami"},
-    {chair:2,row:1,sector:"valami"},
-    {chair:3,row:1,sector:"valami"},
-    {chair:4,row:1,sector:"valami"},
-    {chair:5,row:1,sector:"valami"},
-    {chair:6,row:1,sector:"valami"},
-    {chair:7,row:1,sector:"valami"},
-    {chair:8,row:1,sector:"valami"},
-    {chair:9,row:1,sector:"valami"},
-    {chair:10,row:1,sector:"valami"},
-    {chair:11,row:1,sector:"valami"},
-    {chair:12,row:1,sector:"valami"},
-    {chair:13,row:1,sector:"valami"},
-    {chair:14,row:1,sector:"valami"},
-    {chair:15,row:1,sector:"valami"}
-  ]
-
-  constructor() { }
+  constructor(private eventTicketService:EventticketService) { }
 
   ngOnInit() {
+    console.log("Bejött ide");
+    this.eventTicket1=this.eventTicketService.getEventTicketRow1();
+    this.eventTicket2=this.eventTicketService.getEventTicketRow2();
+    this.eventTicket3=this.eventTicketService.getEventTicketRow3();
+    this.eventTicket4=this.eventTicketService.getEventTicketRow4();
+    this.eventTicket5=this.eventTicketService.getEventTicketRow5();
+    this.eventTicket6=this.eventTicketService.getEventTicketRow6();
+    this.eventTicket7=this.eventTicketService.getEventTicketRow7();
+    this.eventTicket8=this.eventTicketService.getEventTicketRow8();
+    this.eventTicket9=this.eventTicketService.getEventTicketRow9();
+    this.eventTicket10=this.eventTicketService.getEventTicketRow10();
+    this.eventTicket11=this.eventTicketService.getEventTicketRow11();
+    this.eventTicket12=this.eventTicketService.getEventTicketRow12();
+    this.eventTicket13=this.eventTicketService.getEventTicketRow13();
+    this.eventTicket14=this.eventTicketService.getEventTicketRow14();
   }
 
   ngAfterViewInit() {
@@ -173,7 +149,7 @@ public context: CanvasRenderingContext2D;
       console.log(this.row1);
   }
    
-  Teszt(){
-    console.log("Hello");
+  Teszt(row:number,chair:number){
+    console.log("Row:"+ row + " " +"Chair"+chair);
   }
 }

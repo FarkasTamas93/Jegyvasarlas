@@ -1,3 +1,4 @@
+import { EventticketService } from './eventticket.service';
 import { UsersService } from './users.service';
 import { HttpModule } from '@angular/http';
 import { DatabaseService } from './database.service';
@@ -59,7 +60,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EventsService,DatabaseService,UsersService],
+  providers: [EventsService,DatabaseService,UsersService,EventticketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
