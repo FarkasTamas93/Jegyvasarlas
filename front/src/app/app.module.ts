@@ -24,6 +24,7 @@ import { AddneweventComponent } from './addnewevent/addnewevent.component';
 import { UserregistrationComponent } from './userregistration/userregistration.component';
 import { SelectedTypedEventComponent } from './selected-typed-event/selected-typed-event.component';
 import { BuyeventticketComponent } from './buyeventticket/buyeventticket.component';
+import { HighlightDirective } from './highlight.directive';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent },
@@ -52,7 +53,8 @@ const appRoutes: Routes = [
     AddneweventComponent,
     UserregistrationComponent,
     SelectedTypedEventComponent,
-    BuyeventticketComponent
+    BuyeventticketComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
