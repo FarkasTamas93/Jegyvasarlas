@@ -35,4 +35,18 @@ export class DatabaseService {
         );
   }
 
+  storeTickets(tickets: any[]) {
+    return this.http.put('https://jegyvasarlas-http.firebaseio.com/tickets.json', tickets);
+  }
+
+  getTickets() {
+    return this.http.get('https://jegyvasarlas-http.firebaseio.com/tickets.json')
+      .map(
+         (response: Response) => {
+           const data = response.json();
+           return data;
+          }
+        );
+  }
+
 }

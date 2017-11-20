@@ -1,3 +1,4 @@
+import { DatabaseService } from './../database.service';
 import { EventticketService } from './../eventticket.service';
 import { EventTicketModel } from './eventticket.model';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
@@ -55,48 +56,74 @@ export class BuyeventticketComponent implements OnInit{
 //   row12canvas:HTMLCollection;
 //   row13canvas:HTMLCollection;
 //   row14canvas:HTMLCollection;
+
   ticketCanvas:HTMLCollection;
-   constructor(private eventTicketService:EventticketService) { }
+
+   constructor(private eventTicketService:EventticketService,
+               private databaseService:DatabaseService) { }
 
    ngOnInit() {
+     this.eventTicketService.setAllEventTicketEmpty();
 //     console.log(this.row1);
-     this.eventTicket1=this.eventTicketService.getEventTicketRow1();
-     this.eventTicket2=this.eventTicketService.getEventTicketRow2();
-     this.eventTicket3=this.eventTicketService.getEventTicketRow3();
-     this.eventTicket4=this.eventTicketService.getEventTicketRow4();
-     this.eventTicket5=this.eventTicketService.getEventTicketRow5();
-     this.eventTicket6=this.eventTicketService.getEventTicketRow6();
-     this.eventTicket7=this.eventTicketService.getEventTicketRow7();
-     this.eventTicket8=this.eventTicketService.getEventTicketRow8();
-     this.eventTicket9=this.eventTicketService.getEventTicketRow9();
-     this.eventTicket10=this.eventTicketService.getEventTicketRow10();
-     this.eventTicket11=this.eventTicketService.getEventTicketRow11();
-     this.eventTicket12=this.eventTicketService.getEventTicketRow12();
-     this.eventTicket13=this.eventTicketService.getEventTicketRow13();
-     this.eventTicket14=this.eventTicketService.getEventTicketRow14();
+    // this.databaseService.getTickets().subscribe(
+    //   (tickets: EventTicketModel[]) =>{
+    //     for(let i=0;i<tickets.length;i++){
+    //       this.eventTicketService.getAllEventTicket().push(new EventTicketModel(tickets[i].chair,tickets[i].row,tickets[i].sector,tickets[i].reserved,tickets[i].price));
+    //     }
+    //   },
+    //   (error) => console.log(error)
+    // )
+    // console.log("elsoben");
+    // console.log(this.eventTicketService.getAllEventTicket());
+    this.databaseService.getTickets().subscribe(
+      (tickets: any[]) => this.eventTicketService.getAllEventTicket().push(...tickets),
+      (error) => console.log(error)
+    )
+
+     setTimeout(()=>{
+      this.eventTicketService.setEventTicketRows();
+      this.eventTicket1=this.eventTicketService.getEventTicketRow1();
+      this.eventTicket2=this.eventTicketService.getEventTicketRow2();
+      this.eventTicket3=this.eventTicketService.getEventTicketRow3();
+      this.eventTicket4=this.eventTicketService.getEventTicketRow4();
+      this.eventTicket5=this.eventTicketService.getEventTicketRow5();
+      this.eventTicket6=this.eventTicketService.getEventTicketRow6();
+      this.eventTicket7=this.eventTicketService.getEventTicketRow7();
+      this.eventTicket8=this.eventTicketService.getEventTicketRow8();
+      this.eventTicket9=this.eventTicketService.getEventTicketRow9();
+      this.eventTicket10=this.eventTicketService.getEventTicketRow10();
+      this.eventTicket11=this.eventTicketService.getEventTicketRow11();
+      this.eventTicket12=this.eventTicketService.getEventTicketRow12();
+      this.eventTicket13=this.eventTicketService.getEventTicketRow13();
+      this.eventTicket14=this.eventTicketService.getEventTicketRow14();
+      },300);
+     
+//     console.log(this.eventTicket1);
    }
 
    ngAfterViewInit() {
+    setTimeout(()=>{
       this.ticketCanvas =(<HTMLDivElement>this.tickets.nativeElement).children;
       for(let i=0;i<this.ticketCanvas.length;i++){
         let actualRow=this.ticketCanvas[i];
         for(let j=0;j<actualRow.children.length;j++){
           this.context=(<HTMLCanvasElement>actualRow.children[j]).getContext('2d');
           this.context.font="13px Georgia";
-          this.context.fillText(j.toString(),6,14);
+          this.context.fillText((j+1).toString(),6,14);}
         }
-        console.log(actualRow);
+      },600)
+ //       console.log(actualRow);
  //       this.context=(<HTMLCanvasElement>actualRow).getContext('2d');
  //       this.context.font="13px Georgia";
  //       this.context.fillText(i.toString(),6,14);
-      }
+      
     //  for(let i=0;i<this.ticketCanvas.length;i++){
     //    this.context = (<HTMLCanvasElement>this.ticketCanvas[i]).getContext('2d');
     //    this.context.font="13px Georgia";
     //    this.context.fillText(i.toString(),6,14);
     // }
-     console.log(this.tickets);
-     console.log(this.ticketCanvas);
+//     console.log(this.tickets);
+//     console.log(this.ticketCanvas);
 //     this.row1canvas = (<HTMLDivElement>this.row1.nativeElement).children;
 //     for(let i=0;i<this.row1canvas.length;i++){
 //       this.context = (<HTMLCanvasElement>this.row1canvas[i]).getContext('2d');
@@ -187,6 +214,22 @@ export class BuyeventticketComponent implements OnInit{
     
    Teszt(row:number,chair:number){
      console.log("Row:"+ row + " " +"Chair"+chair);
+   }
+
+   saveTickets(){
+//     console.log(this.eventTicketService.getAllEventTicket());
+       this.databaseService.storeTickets(this.eventTicketService.getAllEventTicket()).subscribe((response) => console.log(response),(error) =>console.log(error));
+   }
+
+   loadTickets(){
+    this.databaseService.getTickets().subscribe(
+      (tickets: any[]) => this.eventTicketService.getAllEventTicketTest().push(...tickets),
+      (error) => console.log(error)
+    )
+ //   setTimeout(()=>{console.log(this.eventTicketService.getAllEventTicketTest());},500);
+
+    console.log(this.eventTicketService.getAllEventTicketTest())
+    console.log(this.eventTicketService.getAllEventTicketTest()[0]);
    }
   
 }
