@@ -3,7 +3,7 @@
         <div class="col-xs-12">
             <div class="col-xs-5">
             </div>
-            <canvas id="myCanvas" width="200" height="50" style="border:1px solid #000000; background-color: dimgray;">
+            <canvas id="myCanvas" width="200" height="50" style="border:1px solid #000000; background-color: dimgray;" #draw>
                 Your browser does not support the HTML5 canvas tag.
             </canvas>
         </div>
@@ -227,64 +227,65 @@
  <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <div class="col-xs-4" style="padding-left: 670px">
+                <div class="col-xs-3" style="padding-left: 670px">
                 </div>
-                <div class="col-xs-8" style="padding-left: 670px;" >
+                <div class="col-xs-9" style="padding-left: 33%;" >
                   <div #tickets>
                         <div style="padding-left: 15px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket1" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <!-- <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" *ngFor="let i of eventTicket1" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                         -->
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket1" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                               
                             </canvas>
                         </div>
                         <div style="padding-left: 0px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket2" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket2" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 15px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket3" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket3" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 25px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket4" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket4" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 15px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket5" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket5" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 25px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket6" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket6" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 15px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket7" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket7" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 25px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket8" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket8" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 15px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket9" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket9" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 0px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket10" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket10" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 15px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket11" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket11" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 25px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket12" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket12" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 15px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket13" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket13" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                         <div style="padding-left: 0px;">
-                            <canvas appHighlight *ngFor="let i of eventTicket14" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                        
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket14" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
                             </canvas>
                         </div>
                     </div> 
@@ -296,3 +297,5 @@
 <br>
 <button class="btn btn-primary" (click)="saveTickets()">Ticketek elmentese</button>
 <button class="btn btn-primary" (click)="loadTickets()">Ticketek betoltese</button>
+<button class="btn btn-primary" (click)="clickedTickets()">Bekkattintott ticketek</button>
+<button class="btn btn-primary" (click)="reserveTickets()">Jegy lefoglalasa</button>

@@ -1,7 +1,7 @@
 import { EventsService } from './../events.service';
 import { EventModel } from './../events/event.model';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-eventinformation',
@@ -17,11 +17,18 @@ export class EventinformationComponent implements OnInit {
   teszt:EventModel;
 
   constructor(private eventsService:EventsService ,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router:Router) {
   }
 
   ngOnInit() {
     let num=this.eventsService.getSelectedItemIndex();
     this.selectedItem=this.eventsService.getEvents()[num];
   }
+
+  modifyActualEvent() {
+    let index=(this.route.snapshot.params.id);
+    this.router.navigate(['/editevent',index]);
+  }
+
 }

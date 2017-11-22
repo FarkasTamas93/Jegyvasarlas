@@ -608,5 +608,10 @@ export class EventticketService {
     this.eventTicketsRow13=[];
     this.eventTicketsRow14=[];
   }
-  
+
+  clickedTickets:{row:number,chair:number}[]=[];
+
+  getClickedTickets() {
+    return this.clickedTickets;
+  }
 }

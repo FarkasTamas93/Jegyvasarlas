@@ -1,4 +1,5 @@
-import { Directive, HostBinding, HostListener } from '@angular/core';
+import { EventticketService } from './eventticket.service';
+import { Directive, HostBinding, HostListener, Input, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[appHighlight]'
@@ -7,17 +8,26 @@ export class HighlightDirective {
 
   clicked=false;
 
-  @HostBinding('style.backgroundColor') backgroundColor: string= 'dimgray';
+  @Input() clickedEventIndex:{row:number,chair:number,reserved:boolean};
 
-  constructor() { }
+  @HostBinding('style.backgroundColor') backgroundColor: string;
 
-  @HostListener('click') mouseclick(eventData: Event) {
-    this.clicked=!this.clicked;
-    if(this.clicked===true){
-      this.backgroundColor = 'green';
-    }else{
-      this.backgroundColor = 'dimgray';
+  constructor(private elRef:ElementRef,
+              private eventticketService:EventticketService) {}
+
+//  reservedTickets = 
+
+  @HostListener('click') mouseclick() {
+    console.log(this.elRef);
+    if(this.clickedEventIndex.reserved==false){
+      this.clicked=!this.clicked;
+      if(this.clicked===true){
+        this.backgroundColor = '#ffa500';
+      }else{
+        this.backgroundColor = '#3cb371';
+      }
     }
+    
     
   }
 //  @HostListener('mouseover') mouseover(eventData: Event) {

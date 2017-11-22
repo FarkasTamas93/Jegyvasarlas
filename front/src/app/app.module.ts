@@ -25,6 +25,7 @@ import { UserregistrationComponent } from './userregistration/userregistration.c
 import { SelectedTypedEventComponent } from './selected-typed-event/selected-typed-event.component';
 import { BuyeventticketComponent } from './buyeventticket/buyeventticket.component';
 import { HighlightDirective } from './highlight.directive';
+import { EditeventComponent } from './editevent/editevent.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent },
@@ -33,8 +34,9 @@ const appRoutes: Routes = [
   {path: 'eventinformation/:id',component: EventinformationComponent }, 
   {path: 'addnewevent',component: AddneweventComponent },
   {path: 'addnewuser',component: UserregistrationComponent },
-  {path: 'typedEvent/:type', component:SelectedTypedEventComponent},
-  {path: 'buyTicket', component:BuyeventticketComponent}
+  {path: 'typedEvent/:type', component:SelectedTypedEventComponent}, 
+  {path: 'buyTicket', component:BuyeventticketComponent},
+  {path: 'editevent/:id', component:EditeventComponent}
 ];
 
 @NgModule({
@@ -54,7 +56,8 @@ const appRoutes: Routes = [
     UserregistrationComponent,
     SelectedTypedEventComponent,
     BuyeventticketComponent,
-    HighlightDirective
+    HighlightDirective,
+    EditeventComponent
   ],
   imports: [
     BrowserModule,

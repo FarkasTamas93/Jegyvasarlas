@@ -1,0 +1,11 @@
+.clicked {
+    background-color: #ffa500;
+}
+
+.reserved {
+    background-color: dimgray;
+}
+
+.free {
+    background-color: #3cb371;
+}
