@@ -15,10 +15,11 @@
             <li routerLinkActive="router-link-active"><a [routerLink]="['/typedEvent/','Színház']" (click)="typedList('Színház')">Szinház</a></li>
             <li routerLinkActive="router-link-active"><a [routerLink]="['/typedEvent/','Koncert']" (click)="typedList('Koncert')">Koncert</a></li>
             <li routerLinkActive="router-link-active"><a [routerLink]="['/typedEvent/','Mozi']" (click)="typedList('Mozi')">Mozi</a></li>
-            <li><a href="#">Kedvezményes jegyek</a></li>
-            <li><a href="#">Szakdoga</a></li>
-            <li routerLinkActive="router-link-active"><a [routerLink]="['/eventinformation']">Információ</a></li>
-            <li routerLinkActive="router-link-active"><a [routerLink]="['/addnewevent']">Új esemény</a></li>
+            <li routerLinkActive="router-link-active"><a [routerLink]="['/typedEvent/','Cirkusz']" (click)="typedList('Cirkusz')">Cirkusz</a></li>
+            <li routerLinkActive="router-link-active"><a [routerLink]="['/typedEvent/','Kiállítás']" (click)="typedList('Kiállítás')">Kiállítás</a></li>
+
+            <li routerLinkActive="router-link-active"><a [routerLink]="['/eventinformation']">Információ</a></li>   
+            <li *ngIf="user.permission === 'admin'" routerLinkActive="router-link-active"><a [routerLink]="['/addnewevent']">Új esemény</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li *ngIf="!logged" routerLinkActive="router-link-active"><a [routerLink]="['/addnewuser']"><span class="glyphicon glyphicon-user"></span> Regisztráció</a></li>
@@ -37,14 +38,14 @@
             <form>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input id="email" type="text" class="form-control" name="email" placeholder="Felhasználónév">
+                    <input id="email" type="text" class="form-control" name="email" placeholder="Felhasználónév" #felhasznalo>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input id="password" type="password" class="form-control" name="password" placeholder="Jelszó">
+                    <input id="password" type="password" class="form-control" name="password" placeholder="Jelszó" #jelszo>
                 </div>
             </form>
-            <div class = "pull-right"><button (click)="onLoggedButtonClicked()">Belépés</button></div>
+            <div class = "pull-right"><button (click)="onLoggedButtonClicked(felhasznalo,jelszo)">Belépés</button></div>
         </div>
     </div>
 </div>

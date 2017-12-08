@@ -614,4 +614,23 @@ export class EventticketService {
   getClickedTickets() {
     return this.clickedTickets;
   }
+
+  setEmptyClickedTickets(){
+    this.clickedTickets=[];
+  }
+
+  reservedTicketPrice:number=0;
+
+  setReservedTicketPrice(price: number) {
+    this.reservedTicketPrice=this.reservedTicketPrice + price;
+  }
+
+  getReservedTicketPrice() {
+    return this.reservedTicketPrice;
+  }
+
+  setReservedTicketPriceDefault(){
+    this.reservedTicketPrice=0;
+  }
+  
 }

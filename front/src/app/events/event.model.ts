@@ -8,10 +8,11 @@ export class EventModel {
     public address:string;
     public time: string;
     public eventType: string;
-    public ticketType: string;
-    public ticketPrice: number;
+    public eventGenre: string;
+    public ticketType: string[];
+    public ticketPrice: number[];
   
-    constructor(imagePath: string,title: string, desc: string , town: string,address: string, time: string ,eventType: string,ticketType:string,ticketPrice : number) {
+    constructor(imagePath: string,title: string, desc: string , town: string,address: string, time: string ,eventType: string,eventGenre: string,ticketType:string[],ticketPrice : number[]) {
       this.imagePath = imagePath;
       this.title = title;
       this.description = desc;   
@@ -19,6 +20,7 @@ export class EventModel {
       this.address=address;  
       this.time = time;
       this.eventType=eventType;
+      this.eventGenre=eventGenre;
       this.ticketType=ticketType;
       this.ticketPrice = ticketPrice;
     }

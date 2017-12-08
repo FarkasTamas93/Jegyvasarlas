@@ -1,3 +1,4 @@
+import { LoggeduserService } from './../loggeduser.service';
 import { EventsService } from './../events.service';
 import { EventModel } from './../events/event.model';
 import { Component, OnInit } from '@angular/core';
@@ -16,14 +17,21 @@ export class EventinformationComponent implements OnInit {
 
   teszt:EventModel;
 
+  user;
+
   constructor(private eventsService:EventsService ,
               private route: ActivatedRoute,
-              private router:Router) {
+              private router:Router,
+              private loggedUser:LoggeduserService) {
   }
 
   ngOnInit() {
     let num=this.eventsService.getSelectedItemIndex();
     this.selectedItem=this.eventsService.getEvents()[num];
+    this.route.params.subscribe((params:Params) => {
+      this.selectedItem=this.eventsService.getEvents()[params['id']];
+    })
+    this.user = this.loggedUser.loggeduser;
   }
 
   modifyActualEvent() {

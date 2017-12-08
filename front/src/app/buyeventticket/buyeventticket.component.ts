@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DatabaseService } from './../database.service';
 import { EventticketService } from './../eventticket.service';
 import { EventTicketModel } from './eventticket.model';
@@ -9,6 +10,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./buyeventticket.component.css']
 })
 export class BuyeventticketComponent implements OnInit {
+
+  selectedTicketsInfo:EventTicketModel[]=[];
 
   @ViewChild('draw') draw: ElementRef;
   @ViewChild('tickets') tickets: ElementRef;
@@ -33,23 +36,17 @@ export class BuyeventticketComponent implements OnInit {
 
 
   constructor(private eventTicketService: EventticketService,
-    private databaseService: DatabaseService) {
+              private databaseService: DatabaseService,
+              private router:Router) {
+      console.log("constructor");
+      console.log(this.selectedTicketsInfo);
   }
 
   ngOnInit() {
-
-    // console.log(this.row1);
-    // this.databaseService.getTickets().subscribe(
-    //   (tickets: EventTicketModel[]) =>{
-    //     for(let i=0;i<tickets.length;i++){
-    //       this.eventTicketService.getAllEventTicket().push(new EventTicketModel(tickets[i].chair,tickets[i].row,tickets[i].sector,tickets[i].reserved,tickets[i].price));
-    //     }
-    //   },
-    //   (error) => console.log(error)
-    // )
-    // console.log("elsoben");
-    // console.log(this.eventTicketService.getAllEventTicket());
-
+    this.selectedTicketsInfo=[];
+    this.eventTicketService.setEmptyClickedTickets();
+    console.log("ngoninit");
+    console.log(this.selectedTicketsInfo);
     this.eventTicketService.setAllEventTicketEmpty();
     this.databaseService.getTickets().subscribe(
       (tickets: any[]) => this.eventTicketService.getAllEventTicket().push(...tickets),
@@ -86,6 +83,8 @@ export class BuyeventticketComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    console.log("ngafter");
+    console.log(this.selectedTicketsInfo);
     setTimeout(() => {
       let drawCanvas = this.draw.nativeElement;
       let drawContext = drawCanvas.getContext('2d');
@@ -107,39 +106,6 @@ export class BuyeventticketComponent implements OnInit {
 
   clickedTicket(row: number, chair: number) {
     console.log("Row:" + row + " " + "Chair" + chair);
-    //   console.log(this.ticketCanvas[0].children[2].className="reserved");
-    //    let clicked=this.eventTicketService.getClickedTickets().slice();
-    //    this.eventTicketService.getClickedTickets().push({row:row,chair:chair});
-
-    //    console.log(clicked);
-    //    console.log(this.eventTicketService.getClickedTickets());
-    //    for(let i=0;i<this.eventTicketService.getClickedTickets().length;i++){
-    //      if(clicked[i].row===row && clicked[i].chair===chair ){
-    //        this.eventTicketService.getClickedTickets().splice(i,1);
-    //        console.log("Megegyezik");
-    //      }
-    //    }
-
-    //    var index = myArray.indexOf(key, 0);
-    //    if (index > -1) {
-    //       myArray.splice(index, 1);
-    //    }
-
-    //      let index = this.eventTicketService.getClickedTickets().indexOf({row:1,chair:1});
-
-/*    for (let i = 0; i < this.eventTicketService.getClickedTickets().length; i++) {
-      if (this.eventTicketService.getClickedTickets()[i].row === row) {
-        index1 = true;
-        break;
-      }
-    }
-    for (let i = 0; i < this.eventTicketService.getClickedTickets().length; i++) {
-      if (this.eventTicketService.getClickedTickets()[i].chair === chair) {
-        index2 = true;
-        break;
-      }
-    }
-    */
     let index1 = false;
     let index2 = false;
     let clickedTicketsIndex;
@@ -150,6 +116,7 @@ export class BuyeventticketComponent implements OnInit {
         if(this.eventTicketService.getClickedTickets()[i].chair === chair){
           index2 = true;
           clickedTicketsIndex=i;
+//          console.log(clickedTicketsIndex);
         }
       }
     }
@@ -160,7 +127,30 @@ export class BuyeventticketComponent implements OnInit {
       this.eventTicketService.getClickedTickets().push({row:row,chair:chair});
     }
 
-    console.log(this.eventTicketService.getClickedTickets());
+    //Ez az egész tartozik a szovegdobozhoz
+    let tickets = this.eventTicketService.getAllEventTicket();
+    let indexOfClickedTicket: number[]=[];
+    for(let i=0;i<this.eventTicketService.getClickedTickets().length;i++) {
+      let indexRow=this.eventTicketService.getClickedTickets()[i].row;
+      let indexChair=this.eventTicketService.getClickedTickets()[i].chair;
+      for(let k=0;k<tickets.length;k++){
+        if(tickets[k].row === indexRow && tickets[k].chair===indexChair) {
+          indexOfClickedTicket.push(k);      //ez a szovegdobozhoz kell
+          console.log("Bejott ide8");
+          console.log(indexOfClickedTicket);
+          break;
+        }
+      }
+    }
+
+
+    this.selectedTicketsInfo=[];
+    for(let i=0;i<indexOfClickedTicket.length;i++){
+      this.selectedTicketsInfo.push(this.eventTicketService.getAllEventTicket()[indexOfClickedTicket[i]]);
+    }
+
+    console.log("Ez érdekel most engem");
+    console.log(this.selectedTicketsInfo);
   }
 
 
@@ -185,6 +175,8 @@ export class BuyeventticketComponent implements OnInit {
   }
 
   reserveTickets(){
+    this.eventTicketService.setReservedTicketPriceDefault();
+
     let tickets = this.eventTicketService.getAllEventTicket();
     for(let i=0;i<this.eventTicketService.getClickedTickets().length;i++) {
       let indexRow=this.eventTicketService.getClickedTickets()[i].row;
@@ -194,11 +186,28 @@ export class BuyeventticketComponent implements OnInit {
           console.log("Bejott ide");
           console.log(k);
           tickets[k].reserved=true;
+
+
+          //Jegyár kiszamítás összes
+          if(tickets[k].row >=1 && tickets[k].row <=4 )
+          {
+            this.eventTicketService.setReservedTicketPrice(1000);
+          }
+          if(tickets[k].row >=5 && tickets[k].row <=8 )
+          {
+            this.eventTicketService.setReservedTicketPrice(3000);
+          }
+          if(tickets[k].row >=9 && tickets[k].row <=14 )
+          {
+            this.eventTicketService.setReservedTicketPrice(6000);
+          }
           break;
         }
       }
     }
     console.log(tickets);
+//    this.databaseService.storeTickets(tickets).subscribe((response) => console.log(response),(error) =>console.log(error));
+    this.router.navigate(['/feedback']);
   }
 
 }

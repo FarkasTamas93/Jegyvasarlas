@@ -6,20 +6,6 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class EventsService {
 
   private eventItems : EventModel[]=[
-    // new EventModel("http://pctrs.network.hu/clubpicture/1/4/9/2/_/kutyas_kepek_13_1492289_1211.jpg","A cím","15 év, 8 album, rengeteg koncert, videoklip és emlék – idén dupla albummal, februárban pedig Aréna koncerttel ünnepel a Kowalsky megaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","Debrecen","Csokonai szinhaz","2189-12-21","szinhaz","ulohely",9800),
-    // new EventModel("http://kutyabarat.hu/images/content/800x500/363image_boo2.png","A cím2","Teszt most csak valamit irok hogy jo hosszu legyen mar ez az egesz ","Szeged","Csokonai szinhaz","2189-12-21","szinhaz","ulohely",9800),
-    // new EventModel("http://www.erdekesvilag.hu/kepek/earl/zsembes-kutya-2.jpg","A cím3","Teszt2","Pecs","Csokonai szinhaz","2289-12-21","szinhaz","ulohely",19800),
-    // new EventModel("http://www.szepnapom.hu/macskacica/cic/harom-macska.jpg","A cím4","Teszt3","Eger","Egér szinhaz","2189-12-21","szinhaz","ulohely",29800),
-    // new EventModel("http://nlc.p3k.hu/data/cikk/17/161114/1.jpg","A cím4","Teszt4","Szobi","Kft szinhaz","2134-12-31","szinhaz","ulohely",39800),
-    // new EventModel("http://static.origos.hu/s/img/i/1509/20150917mosolygo-macska.jpg","A cím5","Teszt5","Nádfudvar","Palacsinta szinhaz","2129-13-24","szinhaz","ulohely",49800),
-    // new EventModel("http://www.enkedvencem.hu/wp-content/uploads/2016/08/20160728_enkedvencem_kutya_kviz_cikk1-1024x1024.jpg","A cím6","Teszt6", "Kecskemét","Telefon szinhaz","4183-12-21","szinhaz","ulohely",59800),
-    // new EventModel("http://pctrs.network.hu/clubpicture/1/4/9/2/_/kutyas_kepek_13_1492289_1211.jpg","A cím","15 év, 8 album, rengeteg koncert, videoklip és emlék – idén dupla albummal, februárban pedig Aréna koncerttel ünnepel a Kowalsky megaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","Debrecen","Csokonai szinhaz","2189-12-21","szinhaz","ulohely",9800),
-    // new EventModel("http://kutyabarat.hu/images/content/800x500/363image_boo2.png","A cím2","Teszt most csak valamit irok hogy jo hosszu legyen mar ez az egesz ","Szeged","Csokonai szinhaz","2189-12-21","szinhaz","ulohely",9800),
-    // new EventModel("http://www.erdekesvilag.hu/kepek/earl/zsembes-kutya-2.jpg","A cím3","Teszt2","Pecs","Csokonai szinhaz","2289-12-21","szinhaz","ulohely",19800),
-    // new EventModel("http://www.szepnapom.hu/macskacica/cic/harom-macska.jpg","A cím4","Teszt3","Eger","Egér szinhaz","2189-12-21","szinhaz","ulohely",29800),
-    // new EventModel("http://nlc.p3k.hu/data/cikk/17/161114/1.jpg","A cím4","Teszt4","Szobi","Kft szinhaz","2134-12-31","szinhaz","ulohely",39800),
-    // new EventModel("http://static.origos.hu/s/img/i/1509/20150917mosolygo-macska.jpg","A cím5","Teszt5","Nádfudvar","Palacsinta szinhaz","2129-13-24","szinhaz","ulohely",49800),
-    // new EventModel("http://www.enkedvencem.hu/wp-content/uploads/2016/08/20160728_enkedvencem_kutya_kviz_cikk1-1024x1024.jpg","A cím6","Teszt6", "Kecskemét","Telefon szinhaz","4183-12-21","szinhaz","ulohely",59800),
   ];
 
   private actualList:EventModel[];    //typed selected list
@@ -62,7 +48,7 @@ export class EventsService {
       if(i.eventType === type) {
         this.actualList.push(i);
       }
-      if(this.actualList.length===12) {
+      if(this.actualList.length===20) {
         break;
       }
     }
@@ -78,6 +64,19 @@ export class EventsService {
   
   getlastThreeSelectedItem() {
     return this.lastThreeSelectedItem;
+  }
+
+  last12EventItems:EventModel[]=[];
+
+  setLast12Event(){
+    this.last12EventItems=[];
+    for(let i=this.eventItems.length-12;i<this.eventItems.length;i++){
+      this.last12EventItems.push(this.eventItems[i]);
+    }
+  }
+
+  getLast12Event(){
+    return this.last12EventItems;
   }
 
 }

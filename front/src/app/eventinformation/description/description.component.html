@@ -23,6 +23,6 @@
                 <p class="list-group-item-text"><strong>{{selectedItem.time}}</strong></p>
             </div>
       
-        <app-tickettypes></app-tickettypes>
+        <app-tickettypes [selectedItem]="selectedItem" [ticketsNumber]="selectedItem.ticketPrice.length" [selectedItemType]="selectedItem.eventType"></app-tickettypes>
     </div>
 </div>

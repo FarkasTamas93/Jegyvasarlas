@@ -1,9 +1,8 @@
 <div class="container-fluid">
     <div class="col-sm-4">
     </div>
-    <form (ngSubmit)="onSubmit()" #f="ngForm">
         <div class="col-sm-4">
-
+            <form (ngSubmit)="onSubmit()" #f="ngForm">
             <div class="form-group">
                 <label for="picture">Kép címe(html):</label>
                 <input type="text" class="form-control" id="picture" ngModel name="picture" required>
@@ -18,13 +17,46 @@
 
                 <div class="form-group">
                     <label for="eventType">Esemény típusa:</label>
-                    <select class="form-control" id="eventType" [ngModel]="defaultEventType" name="eventType" required>
-                    <option value="Színház">Színház</option>
-                    <option value="Koncert">Koncert</option>
-                    <option value="Kiállítás">Kiállítás</option>
-                    <option value="Mozi">Mozi</option>
-                    <option value="Cirkusz">Cirkusz</option>
-                </select>
+                    <select (change)="onChange($event.target.value)" class="form-control" id="eventType" [ngModel]="defaultEventType" name="eventType" required>
+                        <option value="Színház">Színház</option>
+                        <option value="Koncert">Koncert</option>
+                        <option value="Kiállítás">Kiállítás</option>
+                        <option value="Mozi">Mozi</option>
+                        <option value="Cirkusz">Cirkusz</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventGenre">Esemény műfaja:</label>
+                    <select class="form-control" id="eventGenre" [ngModel]="eventGenre" name="eventGenre" required>
+                        <option *ngIf="szinhaz === true" value="Vígszínház">Vígszínház</option>
+                        <option *ngIf="szinhaz === true" value="Opera">Opera</option>
+                        <option *ngIf="szinhaz === true" value="Musical">Musical</option>
+                        <option *ngIf="szinhaz === true" value="Dráma">Dráma</option>
+                        <option *ngIf="szinhaz === true" value="Balett">Balett</option>
+
+                        <option *ngIf="koncert === true" value="Pop">Pop</option>
+                        <option *ngIf="koncert === true" value="Rock">Rock</option>
+                        <option *ngIf="koncert === true" value="Hip-hop">Hip-hop</option>
+                        <option *ngIf="koncert === true" value="Komoly">Komoly</option>
+                        <option *ngIf="koncert === true" value="Elektro">Elektro</option>
+                        
+                        <option *ngIf="mozi === true" value="Vígjáték">Vígjáték</option>
+                        <option *ngIf="mozi === true" value="Akció">Akció</option>
+                        <option *ngIf="mozi === true" value="Animáció">Animáció</option>
+                        <option *ngIf="mozi === true" value="Horror">Horror</option>
+                        <option *ngIf="mozi === true" value="Romantikus">Romantikus</option>
+                        <option *ngIf="mozi === true" value="Krimi">Krimi</option>
+
+                        <option *ngIf="kiallitas === true" value="Történelmi">Történelmi</option>
+                        <option *ngIf="kiallitas === true" value="Szépművészeti">Szépművészeti</option>
+                        <option *ngIf="kiallitas === true" value="Állat">Állat</option>
+
+                        <option *ngIf="cirkusz === true" value="Állatcirkusz">Állatcirkusz</option>
+                        <option *ngIf="cirkusz === true" value="Akrobatikuscirkusz">Akrobatikus cirkusz</option>
+                        <option *ngIf="cirkusz === true" value="Hagyományos">Hagyományos</option>
+
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -100,15 +132,25 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-success" type="submit" [disabled]="!f.valid">Rendben</button>
-                <button class="btn btn-warning">Mégsem</button>
+                <div class="pull-left">
+                 <button class="btn btn-success" type="submit" [disabled]="!f.valid">Rendben</button>
+                </div>
             </div>
+        </form>
+        <div style="padding-left: 100px">
+        <button class="btn btn-warning" (click) = "clickMegsem()">Mégsem</button>
         </div>
-    </form>
+    </div>
+ 
+
+    <!-- <div style="padding-top: 750px; padding-left: 50px"> -->
+        <!-- <button class="btn btn-warning" (click) = "clickMegsem()">Mégsem</button> -->
+    <!-- </div> -->
+
     <div class="col-sm-2">
         <div style="padding-top: 576px; padding-left: 50px">
             <div class="dropdown">
-                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Plusz sor <span class="caret"></span></button>
+                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Jegytipus(db) <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li (click)="onPlusRow(1)"><a>1</a></li>
                     <li (click)="onPlusRow(2)"><a>2</a></li>

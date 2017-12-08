@@ -5,7 +5,7 @@ export class UsersService {
 
   constructor() { }
 
-  private users: {firstName:string,lastName:string,userName:string,password:string,email:string,permission:string}[]=[];
+  users: {firstName:string,lastName:string,userName:string,password:string,email:string,permission:string}[]=[];
 
   getUsers() {
     return this.users;

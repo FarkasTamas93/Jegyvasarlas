@@ -1,6 +1,6 @@
 import { EventModel } from './../../events/event.model';
 import { EventsService } from './../../events.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-description',
@@ -9,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DescriptionComponent implements OnInit {
   
-  selectedItem:EventModel;
+@Input()  selectedItem:EventModel;
 
   constructor(private eventsService:EventsService) { }
 
   ngOnInit() {
-    this.selectedItem=this.eventsService.getEvent(this.eventsService.getSelectedItemIndex());
+//    this.selectedItem=this.eventsService.getEvent(this.eventsService.getSelectedItemIndex());
   }
 
 }

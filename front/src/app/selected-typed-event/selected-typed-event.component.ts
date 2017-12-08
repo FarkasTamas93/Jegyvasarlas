@@ -11,13 +11,15 @@ import { Component, OnInit } from '@angular/core';
 export class SelectedTypedEventComponent implements OnInit {
   selectedEvents: EventModel[] = [];
   type:string;
+  num=12;    //alapból mennyi kép jelenjen meg
 
   constructor(private eventsService:EventsService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.selectedEvents=this.eventsService.getActualList();
-
+    console.log("Ezerdekelmostitten")
+    console.log(this.selectedEvents);
     this.route.params.subscribe(params => {
       this.type = params['type']; // (+) converts string 'id' to a number
       console.log(this.type);
@@ -26,6 +28,21 @@ export class SelectedTypedEventComponent implements OnInit {
       console.log(this.selectedEvents);
    });
  }
+    
+
+     onSelectedItem(index:number) {
+      this.eventsService.setSelectedItemIndex(index);
+      console.log(index);
+    }
+    
+    onThreeSelectedItem(index:number) {
+      this.eventsService.setlastThreeSelectedItem(index);
+      console.log(this.eventsService.getlastThreeSelectedItem());
+    }
+
+    setNum() {
+      this.num=this.num+2;        //+ba megjelenített képek száma
+    }
     
   }
 

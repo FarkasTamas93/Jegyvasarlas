@@ -11,9 +11,11 @@
                               <p class="list-group-item-text"><strong>{{selectedItem.title}}</strong></p>
                           </div>
                         </div>
-                        <button class="btn btn-primary" (click)="modifyActualEvent()">Módosítás</button>
+                        <div *ngIf="user.permission === 'admin'">
+                            <button class="btn btn-primary" (click)="modifyActualEvent()">Módosítás</button>
+                        </div>
                 </div>
-                <app-description></app-description>
+                <app-description [selectedItem]="selectedItem"></app-description>
                 <app-lastvisited></app-lastvisited>
         </div> 
     </div>

@@ -22,7 +22,7 @@ export class DatabaseService {
   }
 
   storeUsers(users: any[]) {
-    return this.http.put('https://jegyvasarlas-http.firebaseio.com/users.json', users);
+    return this.http.post('https://jegyvasarlas-http.firebaseio.com/users.json', users);
   }
 
   getUsers() {

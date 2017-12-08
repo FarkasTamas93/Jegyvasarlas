@@ -1,3 +1,4 @@
+import { LoggeduserService } from './loggeduser.service';
 import { EventticketService } from './eventticket.service';
 import { UsersService } from './users.service';
 import { HttpModule } from '@angular/http';
@@ -26,6 +27,9 @@ import { SelectedTypedEventComponent } from './selected-typed-event/selected-typ
 import { BuyeventticketComponent } from './buyeventticket/buyeventticket.component';
 import { HighlightDirective } from './highlight.directive';
 import { EditeventComponent } from './editevent/editevent.component';
+import { EventticketinfoComponent } from './buyeventticket/eventticketinfo/eventticketinfo.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { ExhibitionticketbuyComponent } from './buyeventticket/exhibitionticketbuy/exhibitionticketbuy.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent },
@@ -35,8 +39,11 @@ const appRoutes: Routes = [
   {path: 'addnewevent',component: AddneweventComponent },
   {path: 'addnewuser',component: UserregistrationComponent },
   {path: 'typedEvent/:type', component:SelectedTypedEventComponent}, 
-  {path: 'buyTicket', component:BuyeventticketComponent},
-  {path: 'editevent/:id', component:EditeventComponent}
+  {path: 'buyTicket/:id', component:BuyeventticketComponent},
+  {path: 'editevent/:id', component:EditeventComponent},
+  {path: 'search', component:SearchComponent},
+  {path: 'buyExhibitionTicket/:id', component:ExhibitionticketbuyComponent}, 
+  {path: 'feedback', component:FeedbackComponent}
 ];
 
 @NgModule({
@@ -57,7 +64,10 @@ const appRoutes: Routes = [
     SelectedTypedEventComponent,
     BuyeventticketComponent,
     HighlightDirective,
-    EditeventComponent
+    EditeventComponent,
+    EventticketinfoComponent,
+    FeedbackComponent,
+    ExhibitionticketbuyComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +75,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EventsService,DatabaseService,UsersService,EventticketService],
+  providers: [EventsService,DatabaseService,UsersService,EventticketService,LoggeduserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

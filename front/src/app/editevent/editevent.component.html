@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <div class="col-sm-4">
   </div>
-  <form (ngSubmit)="onSubmit()" #f="ngForm">
-      <div class="col-sm-4">
 
+      <div class="col-sm-4">
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
           <div class="form-group">
               <label for="picture">Kép címe(html):</label>
               <input type="text" class="form-control" id="picture" [(ngModel)]="selectedEvent.imagePath" name="picture" required>
@@ -66,45 +66,49 @@
                   <div class="col-sm-6">
                       <div class="form-group">
                           <label for="ticketType">Jegy típus:</label>
-                          <input type="text" class="form-control" id="ticketType" [(ngModel)]="selectedEvent.ticketType" name="ticketType" required>
+                          <input type="text" class="form-control" id="ticketType" [(ngModel)]="selectedEvent.ticketType[0]" name="ticketType" required>
                           <div [ngSwitch]="requiredRow">
-                              <input *ngSwitchCase="2" type="text" class="form-control" id="ticketType2" ngModel name="ticketType2" required>
-                              <input *ngSwitchCase="3" type="text" class="form-control" id="ticketType2" ngModel name="ticketType2" required>
-                              <input *ngSwitchCase="3" type="text" class="form-control" id="ticketType3" ngModel name="ticketType3" required>
-                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketType2" ngModel name="ticketType2" required>
-                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketType3" ngModel name="ticketType3" required>
-                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketType4" ngModel name="ticketType4" required>
-                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketType2" ngModel name="ticketType2" required>
-                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketType3" ngModel name="ticketType3" required>
-                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketType4" ngModel name="ticketType4" required>
-                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketType5" ngModel name="ticketType5" required>
+                              <input *ngSwitchCase="2" type="text" class="form-control" id="ticketType2" [(ngModel)]="selectedEvent.ticketType[1]" name="ticketType2" required>
+                              <input *ngSwitchCase="3" type="text" class="form-control" id="ticketType2" [(ngModel)]="selectedEvent.ticketType[1]" name="ticketType2" required>
+                              <input *ngSwitchCase="3" type="text" class="form-control" id="ticketType3" [(ngModel)]="selectedEvent.ticketType[2]" name="ticketType3" required>
+                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketType2" [(ngModel)]="selectedEvent.ticketType[1]" name="ticketType2" required>
+                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketType3" [(ngModel)]="selectedEvent.ticketType[2]" name="ticketType3" required>
+                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketType4" [(ngModel)]="selectedEvent.ticketType[3]" name="ticketType4" required>
+                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketType2" [(ngModel)]="selectedEvent.ticketType[1]" name="ticketType2" required>
+                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketType3" [(ngModel)]="selectedEvent.ticketType[2]" name="ticketType3" required>
+                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketType4" [(ngModel)]="selectedEvent.ticketType[3]" name="ticketType4" required>
+                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketType5" [(ngModel)]="selectedEvent.ticketType[4]" name="ticketType5" required>
                           </div>
                       </div>
                   </div>
                   <div class="col-sm-6">
                       <div class="form-group">
                           <label for="ticketPrice">Jegy ár:</label>
-                          <input type="text" class="form-control" id="ticketPrice" [(ngModel)]="selectedEvent.ticketPrice" name="ticketPrice" required>
+                          <input type="text" class="form-control" id="ticketPrice" [(ngModel)]="selectedEvent.ticketPrice[0]" name="ticketPrice" required>
                           <div [ngSwitch]="requiredRow">
-                              <input *ngSwitchCase="2" type="text" class="form-control" id="ticketPrice2" ngModel name="ticketPrice2" required>
-                              <input *ngSwitchCase="3" type="text" class="form-control" id="ticketPrice2" ngModel name="ticketPrice2" required>
-                              <input *ngSwitchCase="3" type="text" class="form-control" id="ticketPrice3" ngModel name="ticketPrice3" required>
-                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketPrice2" ngModel name="ticketPrice2" required>
-                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketPrice3" ngModel name="ticketPrice3" required>
-                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketPrice4" ngModel name="ticketPrice4" required>
-                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketPrice2" ngModel name="ticketPrice2" required>
-                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketPrice3" ngModel name="ticketPrice3" required>
-                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketPrice4" ngModel name="ticketPrice4" required>
-                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketPrice5" ngModel name="ticketPrice5" required>
+                              <input *ngSwitchCase="2" type="text" class="form-control" id="ticketPrice2" [(ngModel)]="selectedEvent.ticketPrice[1]" name="ticketPrice2" required>
+                              <input *ngSwitchCase="3" type="text" class="form-control" id="ticketPrice2" [(ngModel)]="selectedEvent.ticketPrice[1]" name="ticketPrice2" required>
+                              <input *ngSwitchCase="3" type="text" class="form-control" id="ticketPrice3" [(ngModel)]="selectedEvent.ticketPrice[2]" name="ticketPrice3" required>
+                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketPrice2" [(ngModel)]="selectedEvent.ticketPrice[1]" name="ticketPrice2" required>
+                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketPrice3" [(ngModel)]="selectedEvent.ticketPrice[2]" name="ticketPrice3" required>
+                              <input *ngSwitchCase="4" type="text" class="form-control" id="ticketPrice4" [(ngModel)]="selectedEvent.ticketPrice[3]" name="ticketPrice4" required>
+                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketPrice2" [(ngModel)]="selectedEvent.ticketPrice[1]" name="ticketPrice2" required>
+                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketPrice3" [(ngModel)]="selectedEvent.ticketPrice[2]" name="ticketPrice3" required>
+                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketPrice4" [(ngModel)]="selectedEvent.ticketPrice[3]" name="ticketPrice4" required>
+                              <input *ngSwitchCase="5" type="text" class="form-control" id="ticketPrice5" [(ngModel)]="selectedEvent.ticketPrice[4]" name="ticketPrice5" required>
                           </div>
                       </div>
                   </div>
               </div>
-              <button class="btn btn-success" type="submit" [disabled]="!f.valid">Rendben</button>
-              <button class="btn btn-warning">Mégsem</button>
+              <div class="pull-left">
+                <button class="btn btn-success" type="submit" [disabled]="!f.valid">Rendben</button>
+               </div>
           </div>
+        </form>
+        <div style="padding-left: 100px">
+            <button class="btn btn-warning" (click) = "clickMegsem()">Mégsem</button>
+        </div>
       </div>
-  </form>
   <div class="col-sm-2">
       <div style="padding-top: 576px; padding-left: 50px">
           <div class="dropdown">
