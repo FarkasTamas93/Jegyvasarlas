@@ -1,13 +1,13 @@
 package hu.bettina.ticket.Resource.Model;
 
-import java.time.LocalDate;
+
 
 /**
  * Created by Stefyy on 2017. 11. 22..
  */
 public class CreateEventRequest {
 /*létrehoz egy új eventet*/
-private long id;
+    private long id;
     private String imagePath;
     private String title;
     private String description;
@@ -26,6 +26,9 @@ private long id;
     private int ticketPrice2;
     private int ticketPrice3;
     private int ticketPrice4;
+
+    private String[] ticketType;
+    private int[] ticketPrice;
 
     public CreateEventRequest() {
     }
@@ -180,5 +183,75 @@ private long id;
 
     public void setTicketPrice4(int ticketPrice4) {
         this.ticketPrice4 = ticketPrice4;
+    }
+
+    public String[] getTicketType() {
+        return ticketType;
+    }
+
+    public void setTicketType(String[] ticketType) {
+        this.ticketType = ticketType;
+    }
+
+    public int[] getTicketPrice() {
+        return ticketPrice;
+    }
+
+    public void setTicketPrice(int[] ticketPrice) {
+        this.ticketPrice = ticketPrice;
+    }
+
+    public void settingTicketType(){
+        if(ticketType.length==1){
+            for(int i=0;i<ticketType.length;i++){
+                setTicketType0(ticketType[0]);
+                setTicketPrice0(ticketPrice[0]);
+            }
+        }
+        if(ticketType.length==2){
+            for(int i=0;i<ticketType.length;i++){
+                setTicketType0(ticketType[0]);
+                setTicketPrice0(ticketPrice[0]);
+                setTicketType1(ticketType[1]);
+                setTicketPrice1(ticketPrice[1]);
+            }
+        }
+        if(ticketType.length==3){
+            for(int i=0;i<ticketType.length;i++){
+                setTicketType0(ticketType[0]);
+                setTicketPrice0(ticketPrice[0]);
+                setTicketType1(ticketType[1]);
+                setTicketPrice1(ticketPrice[1]);
+                setTicketType2(ticketType[2]);
+                setTicketPrice2(ticketPrice[2]);
+            }
+        }
+        if(ticketType.length==4){
+            for(int i=0;i<ticketType.length;i++){
+                setTicketType0(ticketType[0]);
+                setTicketPrice0(ticketPrice[0]);
+                setTicketType1(ticketType[1]);
+                setTicketPrice1(ticketPrice[1]);
+                setTicketType2(ticketType[2]);
+                setTicketPrice2(ticketPrice[2]);
+                setTicketType3(ticketType[3]);
+                setTicketPrice3(ticketPrice[3]);
+            }
+        }
+        if(ticketType.length==5){
+            for(int i=0;i<ticketType.length;i++){
+                setTicketType0(ticketType[0]);
+                setTicketPrice0(ticketPrice[0]);
+                setTicketType1(ticketType[1]);
+                setTicketPrice1(ticketPrice[1]);
+                setTicketType2(ticketType[2]);
+                setTicketPrice2(ticketPrice[2]);
+                setTicketType3(ticketType[3]);
+                setTicketPrice3(ticketPrice[3]);
+                setTicketType4(ticketType[4]);
+                setTicketPrice4(ticketPrice[4]);
+            }
+        }
+
     }
 }
