@@ -54,4 +54,14 @@ export class HeaderComponent implements OnInit {
     console.log(this.eventsService.getActualList());
   }
 
+  onClickLoggedOff() {
+    this.logged=!this.logged;
+    this.loggedUser.loggeduser.email="Default";
+    this.loggedUser.loggeduser.firstName="Default";
+    this.loggedUser.loggeduser.lastName="Default";
+    this.loggedUser.loggeduser.password="Default";
+    this.loggedUser.loggeduser.permission="Default";
+    this.loggedUser.loggeduser.userName="Default";
+  }
+
 }

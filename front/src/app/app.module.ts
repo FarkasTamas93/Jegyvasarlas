@@ -78,4 +78,9 @@ const appRoutes: Routes = [
   providers: [EventsService,DatabaseService,UsersService,EventticketService,LoggeduserService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+
+
+export class AppModule {
+  
+ }

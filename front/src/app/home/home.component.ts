@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/search']);
   }
 
+  
   clickLegujabb(){
     this.legujabbIsClicked=true;
     this.start=false;

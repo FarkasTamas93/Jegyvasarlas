@@ -1,3 +1,5 @@
+import { EventsService } from './events.service';
+import { EventModel } from './events/event.model';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/Rx'
@@ -5,7 +7,7 @@ import 'rxjs/Rx'
 @Injectable()
 export class DatabaseService {
 
-  constructor(private http:Http) { }
+  constructor(private http:Http,private eventsService:EventsService) { }
 
   storeEvents(events: any[]) {
     return this.http.put('https://jegyvasarlas-http.firebaseio.com/events.json', events);

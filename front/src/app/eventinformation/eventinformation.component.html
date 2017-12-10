@@ -1,7 +1,7 @@
 <app-navtoolbar></app-navtoolbar>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12" *ngIf="getData">
                 <div class="col-sm-2">
                         <div class="list-group">
                           <div class="list-group-item">
@@ -16,7 +16,7 @@
                         </div>
                 </div>
                 <app-description [selectedItem]="selectedItem"></app-description>
-                <app-lastvisited></app-lastvisited>
+                <app-lastvisited ></app-lastvisited> 
         </div> 
     </div>
 </div>

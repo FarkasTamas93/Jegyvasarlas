@@ -1,3 +1,4 @@
+import { DatabaseService } from './../database.service';
 import { EventsService } from './../events.service';
 import { EventModel } from './event.model';
 import { Component, OnInit, Input } from '@angular/core';
@@ -10,7 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EventsComponent implements OnInit {
 
   events: EventModel[];
-  
+
   @Input() numOfEvents:number;
 
   constructor(private eventsService: EventsService) { }
