@@ -2,8 +2,7 @@ package hu.bettina.ticket.commons.domain;
 
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Created by Stefyy on 2017. 11. 22..
@@ -14,6 +13,7 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     private String imagePath;
     private String title;
     private String description;

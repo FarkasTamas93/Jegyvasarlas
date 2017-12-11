@@ -3,6 +3,7 @@ package hu.bettina.ticket.Resource;
 import hu.bettina.ticket.Resource.Model.CreateEventRequest;
 import hu.bettina.ticket.service.EventService;
 
+//import hu.bettina.ticket.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +18,12 @@ import org.springframework.web.bind.annotation.*;
 public class EventResource {
 
     private final EventService eventService;
+    //private final TicketService ticketService;
 
     @Autowired
     public EventResource(EventService eventService) {
         this.eventService = eventService;
+       // this.ticketService = ticketService;
     }
 
     @RequestMapping("/get/all")
@@ -31,6 +34,7 @@ public class EventResource {
     @RequestMapping("/save")
     public ResponseEntity<?> save(@RequestBody CreateEventRequest createEventRequest){
         eventService.save(createEventRequest);
+        //ticketService.
         return new ResponseEntity<>(eventService.getAll(), HttpStatus.OK);
     }
 

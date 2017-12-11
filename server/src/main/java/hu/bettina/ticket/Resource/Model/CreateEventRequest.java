@@ -6,7 +6,6 @@ package hu.bettina.ticket.Resource.Model;
  * Created by Stefyy on 2017. 11. 22..
  */
 public class CreateEventRequest {
-/*létrehoz egy új eventet*/
     private long id;
     private String imagePath;
     private String title;

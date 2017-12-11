@@ -1,9 +1,9 @@
 package hu.bettina.ticket.Resource.Model;
 
 /**
- * Created by Stefyy on 2017. 12. 10..
+ * Created by Stefyy on 2017. 12. 11..
  */
-public class CreateTicketRequest {
+public class UpdateTicketRequest {
 
     private long id;
     private int chair;
@@ -13,7 +13,7 @@ public class CreateTicketRequest {
     private String sector;
     private int eventNumber;
 
-    public CreateTicketRequest(){}
+    public UpdateTicketRequest(){}
 
     public long getId() {
         return id;
