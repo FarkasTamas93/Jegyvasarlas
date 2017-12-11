@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="col-sm-12" style="text-align: center">
+        <button type="button" class="btn" (click)="navigateSearch()">Részletes kereső</button>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- <div class="dropdown"> -->
+                <!-- <button class="btn btn btn" type="button" data-toggle="dropdown">Top12 <span class="caret"></span></button> -->
+                <button type="button" class="btn btn" (click)="clickLegujabb()">Legújabb</button>
+                <button type="button" class="btn btn">Top12</button>               
+                <!-- <ul class="dropdown-menu">
+                    <li><a href="#">Színház</a></li>
+                    <li><a href="#">Koncert</a></li>
+                    <li><a href="#">Kiállítás</a></li>
+                </ul> -->
+            </div>
+        </div>
+    </div>    
+<!-- </div> -->
+<br>
+
+<div *ngIf="start">
+    <app-events
+        [numOfEvents] = "num"
+    ></app-events>
+</div>
+
+<div *ngIf="legujabbIsClicked">
+    <app-event-item *ngFor="let event of last12Event"
+    [eventItem]="event" 
+    [index]="event.eventIndex"           
+    (click)="onSelectedItem(event.eventIndex)"
+    (click)="onThreeSelectedItem(event.eventIndex)"
+    [routerLink]="['/eventinformation',event.eventIndex]">
+    </app-event-item>
+</div>
+

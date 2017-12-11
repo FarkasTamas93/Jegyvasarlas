@@ -1,0 +1,224 @@
+<!-- <div class="container-fluid">
+  <div class="col-sm-9" style="padding-top: 100px;margin-left: 30%">
+      <h3 style="padding-left: 1%">Korda Filmpark Látogatóközpont kiállítás/ szerdától - péntekig</h3>
+      <br>
+      <p style="padding-left: 1%">JEGYTÍPUSOK ÉS MENNYISÉG</p>
+      <br>
+      <div class="col-sm-6">
+          <div class="panel panel-default">
+              <div class="panel-footer">Felnőtt
+                  <div class="pull-right">                           
+                      <form>
+                          <span style="padding-right: 5px">5200ft</span>
+                          <input style="width: 40px;" type="text" name="username">
+                      </form>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+</div> -->
+
+<div class="container-fluid">
+    <div class="col-sm-9" style="padding-top: 100px;margin-left: 30%">
+        <h3 style="padding-left: 1%">Korda Filmpark Látogatóközpont kiállítás/ szerdától - péntekig</h3>
+        <br>
+        <p style="padding-left: 1%">JEGYTÍPUSOK ÉS MENNYISÉG</p>
+        <br>
+        <div class="col-sm-6">
+            <div [ngSwitch]="selectedEventTypeNumber">
+                <div *ngSwitchCase="1">
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[0]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[0]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngSwitchCase="2">
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[0]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[0]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[1]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[1]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngSwitchCase="3">
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[0]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[0]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[1]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[1]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[2]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[2]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngSwitchCase="4">
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[0]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[0]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[1]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[1]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[2]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[2]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[3]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[3]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngSwitchCase="5">
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[0]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[0]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[1]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[1]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[2]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[2]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[3]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[3]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-footer">{{selectedEvent.ticketType[4]}}
+                            <div class="pull-right">                           
+                                <form>
+                                    <span style="padding-right: 5px">{{selectedEvent.ticketPrice[4]}} ft</span>
+                                    <input style="width: 40px;" type="text" name="username">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+<!-- <div [ngSwitch]="selectedEventTypeNumber">
+    <div *ngSwitchCase="1">
+        <div class="panel-body">{{selectedItem.ticketType[0]}} <span class="pull-right">{{selectedItem.ticketPrice[0]}}</span></div>
+    </div>
+    <div *ngSwitchCase="2">
+        <div class="panel-body">{{selectedItem.ticketType[0]}} <span class="pull-right">{{selectedItem.ticketPrice[0]}}</span></div>
+        <div class="panel-body">{{selectedItem.ticketType[1]}} <span class="pull-right">{{selectedItem.ticketPrice[1]}}</span></div>
+    </div>
+    <div *ngSwitchCase="3">
+        <div class="panel-body">{{selectedItem.ticketType[0]}} <span class="pull-right">{{selectedItem.ticketPrice[0]}}</span></div>
+        <div class="panel-body">{{selectedItem.ticketType[1]}} <span class="pull-right">{{selectedItem.ticketPrice[1]}}</span></div>
+        <div class="panel-body">{{selectedItem.ticketType[2]}} <span class="pull-right">{{selectedItem.ticketPrice[2]}}</span></div>
+    </div>
+    <div *ngSwitchCase="4">
+        <div class="panel-body">{{selectedItem.ticketType[0]}} <span class="pull-right">{{selectedItem.ticketPrice[0]}}</span></div>
+        <div class="panel-body">{{selectedItem.ticketType[1]}} <span class="pull-right">{{selectedItem.ticketPrice[1]}}</span></div>
+        <div class="panel-body">{{selectedItem.ticketType[2]}} <span class="pull-right">{{selectedItem.ticketPrice[2]}}</span></div>
+        <div class="panel-body">{{selectedItem.ticketType[3]}} <span class="pull-right">{{selectedItem.ticketPrice[3]}}</span></div>
+    </div>
+    <div *ngSwitchCase="5">
+        <div class="panel-body">{{selectedItem.ticketType[0]}} <span class="pull-right">{{selectedItem.ticketPrice[0]}}</span></div>
+        <div class="panel-body">{{selectedItem.ticketType[1]}} <span class="pull-right">{{selectedItem.ticketPrice[1]}}</span></div>
+        <div class="panel-body">{{selectedItem.ticketType[2]}} <span class="pull-right">{{selectedItem.ticketPrice[2]}}</span></div>
+        <div class="panel-body">{{selectedItem.ticketType[3]}} <span class="pull-right">{{selectedItem.ticketPrice[3]}}</span></div>
+        <div class="panel-body">{{selectedItem.ticketType[4]}} <span class="pull-right">{{selectedItem.ticketPrice[4]}}</span></div>
+    </div>
+  </div> -->
