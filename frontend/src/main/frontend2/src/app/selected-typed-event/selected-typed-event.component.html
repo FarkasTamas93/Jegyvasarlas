@@ -1,0 +1,21 @@
+<div class="container-fluid">
+<div class="row">
+<div *ngFor="let event of selectedEvents; let i = index" (click)="onSelectedItem(event.eventIndex)" (click)="onThreeSelectedItem(event.eventIndex)" [routerLink]="['/eventinformation',event.eventIndex]">
+    <div *ngIf="i<num">
+    <div class="col-sm-2">
+    <div class="list-group" >
+      <a class="list-group-item">
+        <div class="thumbnail">
+            <img src="{{event.imagePath}}" alt="valami" class="list-group-item-heading" style="max-width: 100%;max-height: 100%;height:150px;width: 250px ">
+          </div>
+        <p class="list-group-item-text"><strong>{{event.title}}</strong></p>
+        <p class="list-group-item-text" style="width: 105%;height: 70px; overflow: hidden;">{{event.description}}</p>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+</div>    
+</div>
+
+<button class="btn btn-primary" (click)="setNum()">Mutass többet</button>

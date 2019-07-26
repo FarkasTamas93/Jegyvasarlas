@@ -1,0 +1,341 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-5">
+            </div>
+            <canvas id="myCanvas" width="200" height="50" style="border:1px solid #000000; background-color: dimgray;" #draw>
+                Your browser does not support the HTML5 canvas tag.
+            </canvas>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<!-- 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 670px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 670px;" >
+              <div #row1>
+                <canvas appHighlight *ngFor="let i of eventTicket1" width="20" height="20" style="border:1px solid #000000; background-color: dimgray; margin-left: 3px" (click)="Teszt(i.row,i.chair)">                        
+                </canvas>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 657px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 657px">
+                <div #row2>
+                    <canvas *ngFor="let i of eventTicket2" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                    </canvas>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 670px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 670px">
+              <div #row3>
+                  <canvas *ngFor="let i of eventTicket3" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                  </canvas>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 685px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 685px">
+              <div #row4>
+                  <canvas *ngFor="let i of eventTicket4" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                  </canvas>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 670px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 670px">
+              <div #row5>
+                  <canvas *ngFor="let i of eventTicket5" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                  </canvas>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 685px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 685px">
+              <div #row6>
+                  <canvas *ngFor="let i of eventTicket6" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                  </canvas>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 670px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 670px">
+              <div #row7>
+                  <canvas *ngFor="let i of eventTicket7" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                  </canvas>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 685px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 685px">
+              <div #row8>
+                  <canvas *ngFor="let i of eventTicket8" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                  </canvas>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 670px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 670px">
+              <div #row9>
+                  <canvas *ngFor="let i of eventTicket9" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                  </canvas>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 657px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 657px">
+                <div #row10>
+                    <canvas *ngFor="let i of eventTicket10" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                    </canvas>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 670px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 670px">
+              <div #row11>
+                  <canvas *ngFor="let i of eventTicket11" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                  </canvas>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 685px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 685px">
+              <div #row12>
+                  <canvas *ngFor="let i of eventTicket12" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                  </canvas>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 670px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 670px">
+              <div #row13>
+                  <canvas *ngFor="let i of eventTicket13" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                  </canvas>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-4" style="padding-left: 657px">
+            </div>
+            <div class="col-xs-8" style="padding-left: 657px">
+                <div #row14>
+                 <div  style="display: inline"> 
+                    <canvas *ngFor="let i of eventTicket14" width="20" height="20" style="border:1px solid #000000; background-color: dimgray;margin-left: 3px" (click)="Teszt(i.row,i.chair)">
+                    </canvas>
+                </div> 
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+ -->
+ <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4">
+                    <div class="pull-right" style="padding-left: 90%;">1</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">2</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">3</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">4</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">5</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">6</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">7</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">8</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">9</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">10</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">11</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">12</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">13</div>
+                    <br>
+                    <div class="pull-right" style="padding-left: 90%;;padding-top:7px">14</div>
+                </div>
+                <div class="col-xs-8" style="padding-left:0%;" >
+                  <div #tickets>
+                        <div style="padding-left: 15px;">
+                            <!-- <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" *ngFor="let i of eventTicket1" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="Teszt(i.row,i.chair)">                         -->
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket1" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                               
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 0px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket2" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 15px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket3" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 25px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket4" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 15px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket5" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 25px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket6" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 15px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket7" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 25px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket8" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 15px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket9" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 0px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket10" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 15px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket11" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 25px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket12" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 15px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket13" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                        <div style="padding-left: 0px;">
+                            <canvas appHighlight [clickedEventIndex]="{row:i.row,chair:i.chair,reserved:i.reserved}" [ngClass]="{'reserved': i.reserved==true,'free': i.reserved==false}" *ngFor="let i of eventTicket14" width="20" height="20" style="border:1px solid #000000; margin-left: 3px;" (click)="clickedTicket(i.row,i.chair)">                        
+                            </canvas>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+</div>
+
+<br>
+<br>
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div *ngFor="let ticket of selectedTicketsInfo" >
+                    <app-eventticketinfo [eventTicket]=ticket></app-eventticketinfo> 
+                </div>
+                <!-- <app-eventticketinfo></app-eventticketinfo> -->
+            </div>
+        </div>
+</div>
+
+<br>
+<button class="btn btn-primary" (click)="saveTickets()">Ticketek elmentese</button>
+<button class="btn btn-primary" (click)="loadTickets()">Ticketek betoltese</button>
+<button class="btn btn-primary" (click)="clickedTickets()">Bekkattintott ticketek</button>
+<button class="btn btn-primary" (click)="reserveTickets()">Jegy lefoglalasa</button>
